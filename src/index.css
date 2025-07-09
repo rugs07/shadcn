@@ -128,3 +128,7 @@
 .dark .themed-dialog {
   @apply bg-black text-white;
 }
+
+.perspective-3d {
+  perspective: 500px;
+}

@@ -6,6 +6,7 @@ const InfiniteScroll = () => {
   const [pageNumber, setPageNumber] = useState(1);
 
   const observer = useRef();
+  console.log(observer.current," observer.current");
   const { books, loading, hasMore, error } = UseBookSearch(query, pageNumber);
 
   const lastBookElementRef = useCallback(
