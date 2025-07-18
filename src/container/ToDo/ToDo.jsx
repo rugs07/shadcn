@@ -19,7 +19,7 @@ function ToDo() {
   // Fetch tasks on load
   useEffect(() => {
     setLoading(true);
-    fetch("http://127.0.0.1:5000/tasks")
+    fetch("https://todo-backend-jg0e.onrender.com/tasks")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch tasks");
         return res.json();
@@ -38,7 +38,7 @@ function ToDo() {
     if (!newTask.trim()) return;
     try {
       setLoading(true);
-      const res = await fetch("http://127.0.0.1:5000/tasks", {
+      const res = await fetch("https://todo-backend-jg0e.onrender.com/tasks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title: newTask }),
@@ -59,7 +59,7 @@ function ToDo() {
   const deleteTask = async (id) => {
     try {
       setLoading(true);
-      await fetch(`http://127.0.0.1:5000/tasks/${id}`, { method: "DELETE" });
+      await fetch(`https://todo-backend-jg0e.onrender.com/tasks/${id}`, { method: "DELETE" });
       setTasks(tasks.filter((task) => task.id !== id));
       setError(null);
     } catch (err) {
@@ -92,7 +92,7 @@ function ToDo() {
   const toggleTask = async (id, completed) => {
     try {
       setLoading(true);
-      const res = await fetch(`http://127.0.0.1:5000/tasks/${id}`, {
+      const res = await fetch(`https://todo-backend-jg0e.onrender.com/tasks/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ completed }),
@@ -121,7 +121,7 @@ function ToDo() {
     if (!editingTitle.trim()) return;
     try {
       setLoading(true);
-      const res = await fetch(`http://127.0.0.1:5000/tasks/${id}`, {
+      const res = await fetch(`https://todo-backend-jg0e.onrender.com/tasks/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title: editingTitle }),
